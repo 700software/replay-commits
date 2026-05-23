@@ -1,0 +1,26 @@
+{
+  "name": "replay-commits",
+  "version": "1.0.0",
+  "description": "Replay git subtree history onto another repository with provenance.",
+  "type": "module",
+  "bin": {
+    "replay-commits": "replay-commits.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/700software/replay-commits.git"
+  },
+  "scripts": {
+    "postpublish": "git add . && node -e \"require('child_process').execSync(`git commit -m v${require('./package.json').version}`, { stdio: 'inherit' })\" && git push"
+  },
+  "keywords": [
+    "git",
+    "subtree",
+    "replay",
+    "commits",
+    "history",
+    "migration"
+  ],
+  "author": "Bryan Field <bfield@700software.com>",
+  "license": "Unlicense"
+}
